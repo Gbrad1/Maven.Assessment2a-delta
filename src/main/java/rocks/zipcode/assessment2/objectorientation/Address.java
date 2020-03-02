@@ -18,13 +18,6 @@ public class Address {
         this.zipcode = "";
     }
 
-    /**
-     * @param addressLine1 - first address line
-     * @param addressLine2 - second address line
-     * @param city - city of location
-     * @param state - state of city
-     * @param zipcode - zipcode of region
-     */
     public Address(String addressLine1, String addressLine2, String city, String state, String zipcode) {
         this.addressLine1 = addressLine1;
         this.addressLine2 = addressLine2;
@@ -75,10 +68,10 @@ public class Address {
 
     @Override
     public boolean equals(Object o) {
-        if (this.addressLine1.equals(o)){
-
+        if (this.getClass().equals(o.getClass())) {
+            return true;
         }
-        return true;
+        return false;
     }
 
     @Override
