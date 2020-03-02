@@ -10,7 +10,8 @@ public class StringUtils {
      * @return `stringToBePadded` flushed right by left-padding
      */
     public static String padLeft(String stringToBePadded, int amountOfPadding) {
-        return null;
+        String toRet = String.format("%" + amountOfPadding + "s", stringToBePadded);
+        return toRet;
     }
 
     /**
@@ -19,7 +20,8 @@ public class StringUtils {
      * @return `stringToBePadded` flushed right by right-padding
      */
     public static String padRight(String stringToBePadded, int amountOfPadding) {
-        return null;
+        String toRet = String.format("%" + -amountOfPadding + "s", stringToBePadded);
+        return toRet;
     }
 
     /**
@@ -28,7 +30,11 @@ public class StringUtils {
      * @return the string repeated and concatenated `n` times
      */
     public static String repeatString(String stringToBeRepeated, int numberOfTimeToRepeat) {
-        return null;
+        String toRet = "";
+        for (int i = 0; i < numberOfTimeToRepeat; i++) {
+            toRet += stringToBeRepeated;
+        }
+        return toRet;
     }
 
     /**
@@ -36,7 +42,14 @@ public class StringUtils {
      * @return - true if string only contains alpha characters
      */
     public static Boolean isAlphaString(String string) {
-        return null;
+        String toCheck = string.replace(" ", "");
+        for (int i = 0; i < toCheck.length(); i++) {
+            char check = toCheck.charAt(i);
+            if (check < 'A' || check > 'Z') {
+                return false;
+            }
+        }
+        return true;
     }
 
     /**
@@ -44,7 +57,16 @@ public class StringUtils {
      * @return - true if string only contains numeric characters
      */
     public static Boolean isNumericString(String string) {
-        return null;
+        if (string == null || string.equals("")) {
+            return false;
+        }
+        for (int i = 0; i < string.length(); i++) {
+            char check = string.charAt(i);
+            if (check < '0' || check > '9') {
+                return false;
+            }
+        }
+        return true;
     }
 
     /**
