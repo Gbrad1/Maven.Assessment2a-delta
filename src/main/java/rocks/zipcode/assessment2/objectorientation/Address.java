@@ -11,6 +11,11 @@ public class Address {
     String zipcode;
 
     public Address() {
+        this.addressLine1 = "";
+        this.addressLine2 = "";
+        this.city = "";
+        this.state = "";
+        this.zipcode = "";
     }
 
     /**
@@ -70,6 +75,20 @@ public class Address {
 
     @Override
     public boolean equals(Object o) {
-        return (Boolean)null;
+        if (this.addressLine1.equals(o)){
+
+        }
+        return true;
+    }
+
+    @Override
+    public String toString() {
+        String toReturn = "Address{";
+        toReturn += "addressLine1=" + "'" + this.addressLine1 + "',";
+        toReturn += " addressLine2=" + "'" + this.addressLine2 + "',";
+        toReturn += " city=" + "'" + this.city + "',";
+        toReturn += " state=" + "'" + this.state + "',";
+        toReturn += " zipcode=" + "'" + this.zipcode + "'}";
+        return toReturn;
     }
 }
