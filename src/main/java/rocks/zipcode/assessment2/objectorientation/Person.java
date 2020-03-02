@@ -46,11 +46,40 @@ public class Person {
     }
 
     public void setAddress(Address address) {
-        this.address = new Address();
+        this.address = address;
     }
 
     @Override
     public boolean equals(Object o) {
-        return (Boolean)null;
+        if (o instanceof Person) {
+            if (((Person) o).getId() != null && this.id != null) {
+                if ((!((Person) o).getId().equals(this.id))) {
+                    return false;
+                }
+                return true;
+            }
+            if (((Person) o).getName() != null && this.name != null) {
+                if ((!((Person) o).getName().equals(this.name))) {
+                    return false;
+                }
+                return true;
+            }
+            if (((Person) o).getAddress() != null && this.address != null) {
+                if ((!((Person) o).getAddress().equals(this.address))) {
+                    return false;
+                }
+                return true;
+            }
+        }
+        return false;
+    }
+
+    @Override
+    public String toString() {
+        String toReturn = "Person{";
+        toReturn += "id=" + this.id + ", ";
+        toReturn += "name=" + "'" +  this.name + "'" + ", ";
+        toReturn += "address=" + this.getAddress().toString() + "}";
+        return toReturn;
     }
 }

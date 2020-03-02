@@ -68,7 +68,16 @@ public class Address {
 
     @Override
     public boolean equals(Object o) {
-        return this.getClass().equals(o.getClass());
+        if (o instanceof Address) {
+            if (((Address)o).getAddressLine1().equals(this.addressLine1) &&
+            ((Address) o).getAddressLine2().equals(this.addressLine2) &&
+            ((Address) o).getCity().equals(this.city) &&
+            ((Address) o).getState().equals(this.state) &&
+            ((Address) o).getZipcode().equals(this.zipcode)) {
+                return true;
+            }
+        }
+        return false;
     }
 
     @Override
