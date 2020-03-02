@@ -74,6 +74,15 @@ public class StringUtils {
      * @return - true if string only contains special characters
      */
     public static Boolean isSpecialCharacterString(String string) {
-        return null;
+        String toCheck = string.replace(" ", "");
+        for (int i = 0; i < toCheck.length(); i++) {
+            char check = toCheck.charAt(i);
+            if (check < '0' || check > '9') {
+                return false;
+            } else if (check > 'Z' && check < 'A') {
+                return false;
+            }
+        }
+        return true;
     }
 }
