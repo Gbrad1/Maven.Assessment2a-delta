@@ -1,16 +1,29 @@
 package rocks.zipcode.assessment2.arrays;
 
+import com.sun.org.apache.xalan.internal.xsltc.util.IntegerArray;
+
+import java.lang.reflect.Array;
+import java.util.logging.Logger;
+
 /**
  * @author leon on 28/11/2018.
  */
 public class IntegerArrayUtils {
+    private static final Logger LOGGER = Logger.getLogger(IntegerArrayUtils.class.getName());
+
+
     /**
      * @param integerArray - array to have value added to it
      * @param valueToBeAdded - value to be added to the end of the array
      * @return - identical array with one additional element of `valueToBeAdded` at the end of the array
      */
     public static Integer[] add(Integer[] integerArray, Integer valueToBeAdded) {
-        return null;
+        Integer[] newArray = new Integer[integerArray.length+1];
+        for (int i = 0; i < integerArray.length; i++) {
+            newArray[i] = integerArray[i];
+        }
+        newArray[newArray.length - 1] = valueToBeAdded;
+        return newArray;
     }
 
     /**
@@ -20,7 +33,15 @@ public class IntegerArrayUtils {
      * @return `integerArray` with `valueToBeInserted` at index number `indexToInsertAt`
      */
     public static Integer[] replace(Integer[] integerArray, int indexToInsertAt, Integer valueToBeInserted) {
-        return null;
+        Integer[] arrayToReturn = new Integer[integerArray.length];
+        for (int i = 0; i < integerArray.length - 1; i++) {
+            if (i == indexToInsertAt) {
+                arrayToReturn[i] = valueToBeInserted;
+            } else {
+                arrayToReturn[i] = integerArray[i];
+            }
+        }
+        return arrayToReturn;
     }
 
     /**
@@ -29,7 +50,13 @@ public class IntegerArrayUtils {
      * @return element located at `indexToFetch`
      */
     public static Integer get(Integer[] integerArray, Integer indexToFetch) {
-        return null;
+        Integer unknown = 0;
+        for (int i = 0; i < integerArray.length; i++) {
+            if (i == (indexToFetch)) {
+                unknown = integerArray[i];
+            }
+        }
+        return unknown;
     }
 
     /**
