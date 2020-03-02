@@ -68,10 +68,7 @@ public class Address {
 
     @Override
     public boolean equals(Object o) {
-        if (this.getClass().equals(o.getClass())) {
-            return true;
-        }
-        return false;
+        return this.getClass().equals(o.getClass());
     }
 
     @Override
