@@ -8,7 +8,6 @@ import java.util.List;
  * Use a map to keep track of inventory in a store
  */
 public class Inventory {
-    HashMap<String, List<String>> map = new HashMap<>();
     List<String> items;
 
     /**
@@ -44,6 +43,6 @@ public class Inventory {
      * @return - return the number of items
      */
     public Integer getItemQuantity(String item) {
-        return null;
+        return items.size();
     }
 }
