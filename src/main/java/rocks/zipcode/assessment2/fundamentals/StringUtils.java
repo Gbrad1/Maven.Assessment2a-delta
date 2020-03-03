@@ -56,17 +56,6 @@ public class StringUtils {
      * @return - true if string only contains numeric characters
      */
     public static Boolean isNumericString(String string) {
-        /*if (string == null || string.equals("")) {
-            return false;
-        }
-        for (int i = 0; i < string.length(); i++) {
-            char check = string.charAt(i);
-            if (check < '0' || check > '9') {
-                return false;
-            }
-        }
-        return true;*/
-
         String newString = string.replace(" ", "");
         if (newString.matches("[0-9]+")) {
             return true;
@@ -80,7 +69,9 @@ public class StringUtils {
      */
     public static Boolean isSpecialCharacterString(String string) {
         String toCheck = string.replace(" ", "");
-
-        return null;
+        if (!toCheck.matches("[a-zA-Z0-9!]+")) {
+            return true;
+        }
+        return false;
     }
 }
