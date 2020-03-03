@@ -51,8 +51,9 @@ public class BasicStringUtils {
         String replaced = string.replace(charactersToRemove, "");
 
 
-        /*char[] stringToManipulate = string.toCharArray();
+        char[] stringToManipulate = string.toCharArray();
         char[] charsToRemove = charactersToRemove.toCharArray();
+
         //char[] finalString = new char[stringToManipulate.length - charsToRemove.length];
         for (int i = 0; i < stringToManipulate.length - 1; i++) {
             for (int j = 0; j < charsToRemove.length - 1; j++) {
@@ -62,7 +63,7 @@ public class BasicStringUtils {
                     stringToManipulate[i] = stringToManipulate[i];
                 }
             }
-        }*/
+        }
         return new String(replaced);
     }
 

@@ -1,5 +1,7 @@
 package rocks.zipcode.assessment2.fundamentals;
 
+import static com.sun.xml.internal.ws.spi.db.BindingContextFactory.LOGGER;
+
 /**
  * @author leon on 28/11/2018.
  */
@@ -42,14 +44,11 @@ public class StringUtils {
      * @return - true if string only contains alpha characters
      */
     public static Boolean isAlphaString(String string) {
-        String toCheck = string.replace(" ", "");
-        for (int i = 0; i < toCheck.length(); i++) {
-            char check = toCheck.charAt(i);
-            if (check < 'A' || check > 'Z') {
-                return false;
-            }
+        String newString = string.replace(" ", "");
+        if (newString.matches("[a-zA-Z]+")) {
+            return true;
         }
-        return true;
+        return false;
     }
 
     /**
@@ -57,7 +56,7 @@ public class StringUtils {
      * @return - true if string only contains numeric characters
      */
     public static Boolean isNumericString(String string) {
-        if (string == null || string.equals("")) {
+        /*if (string == null || string.equals("")) {
             return false;
         }
         for (int i = 0; i < string.length(); i++) {
@@ -66,7 +65,13 @@ public class StringUtils {
                 return false;
             }
         }
-        return true;
+        return true;*/
+
+        String newString = string.replace(" ", "");
+        if (newString.matches("[0-9]+")) {
+            return true;
+        }
+        return false;
     }
 
     /**
@@ -75,14 +80,7 @@ public class StringUtils {
      */
     public static Boolean isSpecialCharacterString(String string) {
         String toCheck = string.replace(" ", "");
-        for (int i = 0; i < toCheck.length(); i++) {
-            char check = toCheck.charAt(i);
-            if (check < '0' || check > '9') {
-                return false;
-            } else if (check > 'Z' && check < 'A') {
-                return false;
-            }
-        }
-        return true;
+
+        return null;
     }
 }
