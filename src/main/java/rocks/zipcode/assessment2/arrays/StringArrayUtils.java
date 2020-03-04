@@ -36,20 +36,19 @@ public class StringArrayUtils {
      * @return an array all elements between after `startingIndex`
      */
     public static String[] getEndingArray(String[] arrayToBeSpliced, int startingIndex) {
-        String[] arrayToReturn = new String[arrayToBeSpliced.length - startingIndex];
-        if (arrayToBeSpliced.length < startingIndex && startingIndex > 0) {
-            return arrayToReturn;
-        }
-        for (int i = startingIndex; i < arrayToBeSpliced.length - 1; i++) {
-            arrayToReturn[i] = arrayToBeSpliced[i];
-        }
-        return arrayToReturn;
-    }
-        /*for (String element : arrayToBeSpliced) {
-            if (element.equals(arrayToBeSpliced[startingIndex])) {
-
+        int index = 0;
+        String[] toReturn;
+        if (startingIndex > arrayToBeSpliced.length) {
+            throw new IllegalArgumentException();
+        } else if (startingIndex < 0) {
+            throw new IndexOutOfBoundsException();
+        } else {
+            toReturn = new String[arrayToBeSpliced.length - startingIndex];
+            for (int i = startingIndex; i < arrayToBeSpliced.length; i++) {
+                toReturn[index] = arrayToBeSpliced[i];
+                index++;
             }
         }
-        return null;
-    }*/
+        return toReturn;
+    }
 }
