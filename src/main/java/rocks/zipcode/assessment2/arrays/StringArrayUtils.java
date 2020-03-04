@@ -11,17 +11,22 @@ public class StringArrayUtils {
      * @return an array with all elements between `startingIndex` and `endingIndex`
      */
     public static String[] getSubArray(String[] arrayToBeSpliced, int startingIndex, int endingIndex) {
-        String[] toRet = new String[endingIndex - startingIndex];
-        for (int i = 0; i < arrayToBeSpliced.length - 1; i++) {
-            if (i == startingIndex) {
-                toRet[i] = arrayToBeSpliced[i];
-            } else if (i == endingIndex) {
-                toRet[i] = arrayToBeSpliced[i];
-            } else {
-
+        int index = 0;
+        int arraySize = endingIndex - startingIndex;
+        String[] arrayToReturn;
+        if (startingIndex >= arrayToBeSpliced.length) {
+            throw new IndexOutOfBoundsException();
+        } else if (startingIndex < 0 || endingIndex < 0){
+            throw new IllegalArgumentException();
+        } else {
+            arrayToReturn = new String[arraySize];
+            for (int i = startingIndex; i < endingIndex; i++) {
+                    arrayToReturn[index] = arrayToBeSpliced[i];
+                    index++;
             }
         }
-        return toRet;
+        return arrayToReturn;
+
     }
 
 
@@ -32,9 +37,9 @@ public class StringArrayUtils {
      */
     public static String[] getEndingArray(String[] arrayToBeSpliced, int startingIndex) {
         String[] arrayToReturn = new String[arrayToBeSpliced.length - startingIndex];
-        /*if (arrayToBeSpliced.length < startingIndex && startingIndex > 0) {
+        if (arrayToBeSpliced.length < startingIndex && startingIndex > 0) {
             return arrayToReturn;
-        }*/
+        }
         for (int i = startingIndex; i < arrayToBeSpliced.length - 1; i++) {
             arrayToReturn[i] = arrayToBeSpliced[i];
         }

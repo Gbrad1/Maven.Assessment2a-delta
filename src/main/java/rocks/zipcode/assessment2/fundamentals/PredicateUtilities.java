@@ -40,7 +40,7 @@ public class PredicateUtilities {
      * @return true if `string` starts with a capital letter
      */
     public static Boolean startsWithCapitalLetter(String string) {
-        if (string.substring(0, 1).equals(string.substring(0, 1).toUpperCase())) {
+        if (string.substring(0, 1).equals(string.substring(0, 1).toUpperCase()) && !string.substring(0,1).equals("%")) {
             return true;
         } else
             return false;

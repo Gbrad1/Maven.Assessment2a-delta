@@ -47,25 +47,17 @@ public class BasicStringUtils {
      * @return `string` with `charactersToRemove` removed
      */
     public static String removeCharacters(String string, String charactersToRemove) {
-
-        String replaced = string.replace(charactersToRemove, "");
-
-
-        char[] stringToManipulate = string.toCharArray();
-        char[] charsToRemove = charactersToRemove.toCharArray();
-
-        //char[] finalString = new char[stringToManipulate.length - charsToRemove.length];
-        for (int i = 0; i < stringToManipulate.length - 1; i++) {
-            for (int j = 0; j < charsToRemove.length - 1; j++) {
-                if (stringToManipulate[i] == charsToRemove[j]) {
-                    stringToManipulate[i] = ' ';
-                } else {
-                    stringToManipulate[i] = stringToManipulate[i];
+        char[] newString = string.toCharArray();
+        char[] charactersToRemoveInCharForm = charactersToRemove.toCharArray();
+        for (int i = 0; i < newString.length; i++) {
+            for (int j = 0; j < charactersToRemoveInCharForm.length; j++) {
+                if (string.charAt(i) == charactersToRemove.charAt(j)) {
                 }
             }
         }
-        return new String(replaced);
+        return null;
     }
+
 
     /**
      * @param string - the string to be manipulated
