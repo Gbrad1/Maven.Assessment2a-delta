@@ -1,6 +1,11 @@
 package rocks.zipcode.assessment2.fundamentals;
 
+import java.util.logging.Logger;
+
 public class BasicStringUtils {
+    private static final Logger LOGGER = Logger.getLogger(BasicStringUtils.class.getName());
+
+
     /**
      * @param string1 - Base string to be added to
      * @param string2 - String to add to `string1`
@@ -47,15 +52,16 @@ public class BasicStringUtils {
      * @return `string` with `charactersToRemove` removed
      */
     public static String removeCharacters(String string, String charactersToRemove) {
-        char[] newString = string.toCharArray();
-        char[] charactersToRemoveInCharForm = charactersToRemove.toCharArray();
-        for (int i = 0; i < newString.length; i++) {
-            for (int j = 0; j < charactersToRemoveInCharForm.length; j++) {
-                if (string.charAt(i) == charactersToRemove.charAt(j)) {
+        char[] charsToRemove = charactersToRemove.toCharArray();
+        String toReturn = string;
+        for (char element : charsToRemove) {
+            for(char index : toReturn.toCharArray()) {
+                if (index == element) {
+                    toReturn = toReturn.replace(index + "", "");
                 }
             }
         }
-        return null;
+        return toReturn;
     }
 
 
